@@ -87,7 +87,7 @@ export default function GroupTypeOfStore(){
                 </div>
             </div>
         </div>
-                {setDimension ? (
+        {this.setDimension ? (
             <div className="group">
                 <h1>Dimensions</h1>
                 <div className="briefing">
