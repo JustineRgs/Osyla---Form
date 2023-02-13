@@ -186,7 +186,7 @@ function App() {
         />
       ))}
       <Routes>
-        <Route exact path="/step" element={<StepFixation />}></Route>
+        <Route path="/" element={<StepFixation />}></Route>
       </Routes>
     </div>
   );
