@@ -1,9 +1,17 @@
 import { useState } from "react";
 import "./App.css";
-
-import GroupTypeOfStore from "./components/GroupTypeOfStore.jsx/GroupTypeOfStore";
+import { Routes, Route } from "react-router-dom";
+import Groups from "./components/Groups/Groups";
+import StepFixation from "./pages/StepFixation";
 
 function App() {
+  const [dimension, setDimension] = useState(false);
+  const [selectOption, setSelectOption] = useState("");
+
+  const handleRadioClick = (selectedOption) => {
+    setDimension(selectedOption === "store_banne");
+    setSelectOption(selectedOption);
+  };
   const groups = [
     {
       name: "Type de store",
@@ -21,7 +29,7 @@ function App() {
           },
           img: {
             alt: "Illustration d'une toile de store banne",
-            src: "",
+            src: "./img/banne.jpeg",
           },
         },
         {
@@ -36,7 +44,7 @@ function App() {
           },
           img: {
             alt: "Illustration d'une toile de store bras droits",
-            src: "",
+            src: "./img/bras-droits.jpeg",
           },
         },
         {
@@ -51,7 +59,7 @@ function App() {
           },
           img: {
             alt: "Illustration d'une toile de store double pente",
-            src: "",
+            src: "./img/doubl-pente.jpeg",
           },
         },
         {
@@ -66,8 +74,93 @@ function App() {
           },
           img: {
             alt: "Illustration d'une toile de store à descente verticale",
-            src: "",
+            src: "./img/desc-verticale.jpeg",
           },
+        },
+      ],
+    },
+    {
+      name: "Dimensions",
+      description:
+        "Indiquez ci-dessous les dimensions de votre toile de store hors tout.D'une extrémité à l'autre, coutures comprises. Pour savoir comment prendre ces mesures cliquez-ici.",
+      inputs: [
+        {
+          groupe_dimension_toile: [
+            {
+              input: {
+                type: "text",
+                name: "width",
+              },
+              label: {
+                htmlFor: "width",
+                text: "Largeur",
+              },
+            },
+            {
+              input: {
+                type: "text",
+                name: "projection",
+              },
+              label: {
+                htmlFor: "projection",
+                text: "Projection",
+              },
+            },
+          ],
+          groupe_dimension_double_pente: [
+            {
+              input: {
+                type: "text",
+                name: "width",
+              },
+              label: {
+                htmlFor: "width",
+                text: "Largeur",
+              },
+            },
+            {
+              input: {
+                type: "text",
+                name: "projection",
+              },
+              label: {
+                htmlFor: "projection",
+                text: "Projection",
+              },
+            },
+            {
+              input: {
+                type: "text",
+                name: "projection-opp",
+              },
+              label: {
+                htmlFor: "projection-opp",
+                text: "Projection opposée",
+              },
+            },
+          ],
+          groupe_dimension_descente_verticale: [
+            {
+              input: {
+                type: "text",
+                name: "width",
+              },
+              label: {
+                htmlFor: "width",
+                text: "Largeur",
+              },
+            },
+            {
+              input: {
+                type: "text",
+                name: "height",
+              },
+              label: {
+                htmlFor: "height",
+                text: "Hauteur",
+              },
+            },
+          ],
         },
       ],
     },
@@ -84,79 +177,19 @@ function App() {
         </div>
       </div>
       {groups.map((group, i) => (
-        <GroupTypeOfStore name={group.name} radios={group.radios} key={i} />
+        <Groups
+          name={group.name}
+          description={group.description}
+          radios={group.radios}
+          inputs={group.inputs}
+          key={i}
+        />
       ))}
+      <Routes>
+        <Route exact path="/step" element={<StepFixation />}></Route>
+      </Routes>
     </div>
   );
 }
-// function Group1(props) {
-//   return (
-//     <div className="container-input-dimension">
-//       <label htmlFor="width">
-//         Largeur
-//         <div className="content-input">
-//           <input name="width" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//       <label htmlFor="projection">
-//         Projection
-//         <div className="content-input">
-//           <input name="projection" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//     </div>
-//   );
-// }
-
-// function Group2(props) {
-//   return (
-//     <div className="container-input-dimension">
-//       <label htmlFor="width">
-//         Largeur
-//         <div className="content-input">
-//           <input name="width" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//       <label htmlFor="projection">
-//         Projection
-//         <div className="content-input">
-//           <input name="projection" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//       <label htmlFor="projection-opp">
-//         Projection opposée
-//         <div className="content-input">
-//           <input name="projection-opp" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//     </div>
-//   );
-// }
-
-// function Group3(props) {
-//   return (
-//     <div className="container-input-dimension">
-//       <label htmlFor="width">
-//         Largeur
-//         <div className="content-input">
-//           <input name="width" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//       <label htmlFor="height">
-//         Hauteur
-//         <div className="content-input">
-//           <input name="height" />
-//           <span>cm</span>
-//         </div>
-//       </label>
-//     </div>
-//   );
-// }
 
 export default App;
