@@ -5,6 +5,7 @@ export default function Groups({
   description,
   radios,
   inputs,
+  select,
   handleRadioClick,
 }) {
   return (
@@ -17,13 +18,14 @@ export default function Groups({
           </div>
         )}
         {radios &&
-          radios.map((element) => {
+          radios.map((element, i) => {
             return (
-              <div className="container-radio-img">
+              <div className="select">
                 <input
                   type={element.input.type}
                   name={element.input.name}
                   id={element.input.id}
+                  key={i}
                   onClick={() => handleRadioClick(element.input.id)}
                 />
 
@@ -40,12 +42,12 @@ export default function Groups({
           inputs.map((element) => {
             return (
               <div className="container-input-dimension">
-                {element.groupe_dimension_toile.map((input) => {
+                {element.groupe_dimension_toile.map((input, i) => {
                   return (
                     <label htmlFor={input.label.htmlFor}>
                       {input.label.text}
                       <div className="content-input">
-                        <input name={input.input.name} />
+                        <input name={input.input.name} key={i} />
                         <span>cm</span>
                       </div>
                     </label>
@@ -73,6 +75,25 @@ export default function Groups({
                     </label>
                   );
                 })} */}
+              </div>
+            );
+          })}
+        {select &&
+          select.map((element, i) => {
+            return (
+              <div className="select_list">
+                <label htmlFor={element.label.htmlFor}>
+                  {element.label.text}
+                  <ion-icon
+                    name="information-circle-sharp"
+                    alt="icon d'information"
+                  ></ion-icon>
+                </label>
+                <select className="select select--Secondary">
+                  {element.option.map((option, i) => {
+                    return <option value={option.value}>{option.label}</option>;
+                  })}
+                </select>
               </div>
             );
           })}

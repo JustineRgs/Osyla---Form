@@ -161,13 +161,13 @@ label {
     margin: 24px;
 }
 
-.container-radio-img {
+.select {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-.container-radio-img input{
+.select input{
     opacity: 0;
     position: absolute;
     top: 0;
@@ -177,8 +177,16 @@ label {
     cursor: pointer;
 }
 
-.container-radio-img input:checked + .radio-img{
+.select input:checked + .radio-img{
     border: 2px solid #1AE397;
+}
+
+.select--Secondary {
+    background: rgba(23, 171, 114, 0.21);
+    border: 1px solid #17AB72;
+    width: 98%;
+    height: 66px;
+    margin: 6px 4px 10px 4px;
 }
 
 .radio-img {
