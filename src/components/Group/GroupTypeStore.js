@@ -1,5 +1,5 @@
 import Radios from "../Radios/Radios";
-
+import { useState } from "react";
 export default function GroupChoixLambrequin() {
   const group = [
     {
@@ -69,6 +69,12 @@ export default function GroupChoixLambrequin() {
       ],
     },
   ];
+  const [dimension, setDimension] = useState(false);
+  const [selectOption, setSelectOption] = useState("");
+
+  const handleRadioClick = () => {
+    setDimension(true);
+  };
   return (
     <div className="group">
       {group.map((element, i) => {

@@ -277,9 +277,53 @@ label {
     font-size: 12px;
     font-weight: 700;
 }
+
 ion-icon {
     vertical-align: middle;
     color: #1AE397;
     font-size: 16px;
     padding: 2px;
+}
+.btn_previous {
+    width: 38px;
+    height: 38px;
+    background:#000000;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+.btn_previous ion-icon {
+    position: absolute;
+    transform: translate(6px, 7px);
+    font-size: 20px;
+    color:#FFFFFF;
+}
+
+.btn_next {
+    background: #000000;
+    position: relative;
+    padding: 15px 24px;
+    cursor: pointer;
+    width: 235px;
+    margin: auto;
+}
+
+.arrow_next {
+    position: absolute;
+    background: #414141;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30px;
+}
+.arrow_next ion-icon {
+    font-size: 20px;
+    position: absolute;
+    transform: translate(4px,9px);
+}
+
+.paginator {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
