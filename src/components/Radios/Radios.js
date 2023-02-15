@@ -1,5 +1,4 @@
-import { useState } from "react";
-export default function Radios({ radios }) {
+export default function Radios({ radios, handleRadioClick }) {
   return (
     <>
       {radios &&
@@ -11,7 +10,7 @@ export default function Radios({ radios }) {
                 name={element.input.name}
                 id={element.input.id}
                 key={i}
-                onClick={console.log(element.input.id)}
+                onClick={() => handleRadioClick(element.input.id)}
               />
               <div className="radio-img">
                 <label htmlFor={element.label.htmlFor}>

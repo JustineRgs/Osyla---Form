@@ -1,22 +1,17 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "../components/Header/Header";
 import GroupTypeStore from "../components/Group/GroupTypeStore";
 import GroupDimensionStore from "../components/Group/GroupDimensionStore";
-import { Link } from "react-router-dom";
 
-function StepTypeOfStore() {
-  const [dimension, setDimension] = useState(false);
-  const [selectOption, setSelectOption] = useState("");
-
-  const handleRadioClick = () => {
-    setDimension(true);
-  };
-
+function StepTypeOfStore({ handleRadioClick, selectOption, openGroup }) {
   return (
     <div className="stage">
       <Header />
-      <GroupTypeStore />
-      <GroupDimensionStore />
+
+      <GroupTypeStore handleRadioClick={handleRadioClick} />
+
+      {openGroup && <GroupDimensionStore selectOption={selectOption} />}
 
       {/* Pagination */}
       <div className="paginator">

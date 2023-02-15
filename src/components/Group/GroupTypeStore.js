@@ -1,6 +1,6 @@
 import Radios from "../Radios/Radios";
-import { useState } from "react";
-export default function GroupChoixLambrequin() {
+
+export default function GroupTypeStore({ handleRadioClick }) {
   const group = [
     {
       name: "Type de store",
@@ -69,12 +69,7 @@ export default function GroupChoixLambrequin() {
       ],
     },
   ];
-  const [dimension, setDimension] = useState(false);
-  const [selectOption, setSelectOption] = useState("");
 
-  const handleRadioClick = () => {
-    setDimension(true);
-  };
   return (
     <div className="group">
       {group.map((element, i) => {
@@ -86,7 +81,10 @@ export default function GroupChoixLambrequin() {
                 <p>{element.description}</p>
               </div>
             )}
-            <Radios radios={element.radios} />
+            <Radios
+              radios={element.radios}
+              handleRadioClick={handleRadioClick}
+            />
           </>
         );
       })}

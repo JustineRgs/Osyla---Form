@@ -1,7 +1,6 @@
-import Radios from "../Radios/Radios";
 import Input from "../imputs/Imputs";
 
-export default function GroupChoixLambrequin() {
+export default function GroupDimensionStore(selectOption, setSelectOption) {
   const group = [
     {
       name: "Dimensions",
@@ -100,7 +99,11 @@ export default function GroupChoixLambrequin() {
                 <p>{element.description}</p>
               </div>
             )}
-            <Input inputs={element.inputs} />
+            <Input
+              inputs={element.inputs}
+              selectOption={selectOption}
+              setSelectOption={setSelectOption}
+            />
           </>
         );
       })}
