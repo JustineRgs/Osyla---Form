@@ -1,6 +1,6 @@
 import Radios from "../Radios/Radios";
 
-export default function GroupChoixLambrequin() {
+export default function GroupChoixLambrequin({ handleRadioClick }) {
   const group = [
     {
       name: "Choix du lambrequin",
@@ -80,7 +80,10 @@ export default function GroupChoixLambrequin() {
                 <p>{element.description}</p>
               </div>
             )}
-            <Radios radios={element.radios} />
+            <Radios
+              radios={element.radios}
+              handleRadioClick={handleRadioClick}
+            />
           </>
         );
       })}

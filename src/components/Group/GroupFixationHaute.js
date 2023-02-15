@@ -1,6 +1,6 @@
 import Radios from "../Radios/Radios";
 
-export default function GroupFixationHaute() {
+export default function GroupFixationHaute({ handleRadioClick }) {
   const group = [
     {
       name: "Fixation haute",
@@ -65,7 +65,10 @@ export default function GroupFixationHaute() {
                 <p>{element.description}</p>
               </div>
             )}
-            <Radios radios={element.radios} />
+            <Radios
+              radios={element.radios}
+              handleRadioClick={handleRadioClick}
+            />
           </>
         );
       })}
