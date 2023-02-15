@@ -1,33 +1,13 @@
-import Header from "../components/Header/Header";
 import GroupChoixLambrequin from "../components/Group/GroupChoixLambrequin";
 import GroupPersoLambrequin from "../components/Group/GroupPersoLambrequin";
-import { Link } from "react-router-dom";
 
-function StepLambrequin({ handleRadioClick, handleClickPaginator, openGroup }) {
+function StepLambrequin({ handleRadioClick, openGroup }) {
   return (
-    <div className="stage">
-      <Header />
-
+    <>
       <GroupChoixLambrequin handleRadioClick={handleRadioClick} />
 
       {openGroup && <GroupPersoLambrequin />}
-
-      <div className="paginator">
-        <Link to="/step2" onClick={() => handleClickPaginator()}>
-          <div className="btn_previous">
-            <ion-icon name="chevron-back-outline"></ion-icon>
-          </div>
-        </Link>
-        <Link to="/step4" onClick={() => handleClickPaginator()}>
-          <div className="btn_next">
-            <span>Valider les fixations</span>
-            <div className="arrow_next">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </div>
-          </div>
-        </Link>
-      </div>
-    </div>
+    </>
   );
 }
 
