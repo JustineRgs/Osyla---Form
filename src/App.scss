@@ -125,11 +125,11 @@ ion-icon {
     position: absolute;
     width: 100%;
     bottom: 0;
-
+    transition: 2s ease-in-out;
 }
 
 .modal.reduce {
-    height: 67px;
+    bottom: -458px;
 }
 
 .modal_close {

@@ -83,7 +83,9 @@ function App() {
   const openModal = () => setShowModal(true);
 
   // Action : Réduire modale
-  const handleReduceModal = () => setReduceModal(!reduceModal);
+  const handleReduceModal = () => {
+    setReduceModal(!reduceModal);
+  };
 
   // Action : Fermer modale
   const handleCloseModal = () => {
