@@ -1,3 +1,5 @@
+import "./imputs.scss";
+
 export default function Input({ inputs, selectOption }) {
   return (
     <>

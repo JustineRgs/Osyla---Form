@@ -1,5 +1,5 @@
-import "./App.css";
-import { useState } from "react";
+import "./App.scss";
+import { useEffect, useState } from "react";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import StepTypeOfStore from "./pages/StepTypeofStore";
@@ -80,14 +80,10 @@ function App() {
   };
 
   // Action : Ouvrir modale
-  const openModal = () => {
-    setShowModal(true);
-  };
+  const openModal = () => setShowModal(true);
 
   // Action : Réduire modale
-  const handleReduceModal = () => {
-    setReduceModal(!reduceModal);
-  };
+  const handleReduceModal = () => setReduceModal(!reduceModal);
 
   // Action : Fermer modale
   const handleCloseModal = () => {
@@ -102,12 +98,8 @@ function App() {
           Pouet
         </button>
       </Link>
-
       {showModal && (
-        <div
-          className={`overlay ${showModal ? "open" : ""}`}
-          onClick={handleReduceModal}
-        >
+        <div className={`overlay ${showModal ? "open" : ""}`}>
           <div className={`modal ${reduceModal ? "reduce" : ""}`}>
             <Header handleReduceModal={handleReduceModal} />
 

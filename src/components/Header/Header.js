@@ -1,3 +1,5 @@
+import "./_header.scss";
+
 export default function Header({ handleReduceModal }) {
   return (
     <div className="header">

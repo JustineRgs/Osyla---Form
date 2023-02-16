@@ -1,10 +1,12 @@
+import "./radios.scss";
+
 export default function Radios({ radios, handleRadioClick }) {
   return (
     <>
       {radios &&
         radios.map((element, i) => {
           return (
-            <div className="select">
+            <div className="select_img">
               <input
                 type={element.input.type}
                 name={element.input.name}

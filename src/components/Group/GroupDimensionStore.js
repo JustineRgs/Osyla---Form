@@ -1,3 +1,4 @@
+import "./group.scss";
 import Input from "../imputs/Imputs";
 
 export default function GroupDimensionStore(selectOption, setSelectOption) {
