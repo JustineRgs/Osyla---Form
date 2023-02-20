@@ -6,8 +6,8 @@ export default function Radios({ label, value, imageUrl, handleRadioClick }) {
       <div className="select_img">
         <input
           type="radio"
-          name={value}
-          // id={element.input.id}
+          name="radio"
+          id={value}
           onClick={() => handleRadioClick(value)}
         />
         <div className="radio-img">
