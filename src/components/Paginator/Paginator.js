@@ -2,7 +2,7 @@ import "./paginator.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Paginator({ setOpenGroup, steps }) {
+export default function Paginator({ setOpenGroup, stepsURL }) {
   // Numéro de la page ouverte à l'instant T
   const [pageNumber, setPageNumber] = useState(0);
 
@@ -30,7 +30,7 @@ export default function Paginator({ setOpenGroup, steps }) {
           <ion-icon name="chevron-back-outline"></ion-icon>
         </div>
       )}
-      {pageNumber < steps.length && (
+      {pageNumber < stepsURL.length && (
         <div className="btn_next" onClick={nextPage}>
           <span>Etape suivante</span>
           <div className="arrow_next">

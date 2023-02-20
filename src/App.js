@@ -1,4 +1,5 @@
 import "./App.scss";
+import data from "./data.json";
 import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -9,6 +10,8 @@ import StepOptions from "./pages/StepOptions";
 import Paginator from "./components/Paginator/Paginator";
 
 function App() {
+  const [form, setForm] = useState(data);
+
   // Ouverture group 2 au click sur un élement du group 1
   const [openGroup, setOpenGroup] = useState(false);
 
@@ -31,7 +34,7 @@ function App() {
   };
 
   // Tableau d'étape
-  const steps = [
+  const stepsURL = [
     {
       path: "/step1",
       element: (
@@ -39,6 +42,7 @@ function App() {
           handleRadioClick={handleRadioClick}
           selectOption={selectOption}
           openGroup={openGroup}
+          steps={form.steps[0]}
         />
       ),
     },
@@ -63,8 +67,8 @@ function App() {
     { path: "/step4", element: <StepOptions /> },
   ];
 
-  // Création de la route correspondante à steps[i]
-  const routeElements = steps.map((step, index) => (
+  // Création de la route correspondante à stepsURL[i]
+  const routeElements = stepsURL.map((step, index) => (
     <Route key={index} path={step.path} element={step.element} />
   ));
 
@@ -111,7 +115,7 @@ function App() {
             <div className="stage">
               <Routes>{routeElements}</Routes>
 
-              <Paginator setOpenGroup={setOpenGroup} steps={steps} />
+              <Paginator setOpenGroup={setOpenGroup} stepsURL={stepsURL} />
 
               <span className="modal_close" onClick={handleCloseModal}>
                 Abandonner la configuration

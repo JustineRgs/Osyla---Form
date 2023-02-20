@@ -1,0 +1,783 @@
+{
+    "name":"form_store_banne",
+    "steps":[
+        {
+            "name":"step_dimension",
+            "label":"Dimension",
+            "css": "step",
+            "groups":[
+                {
+                    "name":"groupe_type_de_toile",
+                    "label":"Type de toile",
+                    "description":"...",
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "css":"groupe_type_de_toile",
+                    "fields":[
+                        {
+                            "name":"field_type_toile_a_remplacer",
+                            "label":"Type de toile à remplacer",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "values":[
+                                    {
+                                        "label":"Toile de store banne",
+                                        "value":"simple",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390289-thumb.jpg",
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Toile de store bras droits",
+                                        "value":"simple",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390290-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Toile store double pente",
+                                        "value":"double_pente",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390291-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Toile de store à descente verticale",
+                                        "value":"simple_vertical",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390292-thumb.jpg",
+                                        "default":false
+                                    }
+                                ],
+                                "required":true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"groupe_dimension_toile_de_store_banne",
+                    "label":"Dimension toile de store banne",
+                    "description":"...",
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "fields":[
+                        {
+                            "name":"field_largeur",
+                            "label":"Largeur",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":20,
+                                "max":2000,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":100,
+                                "required":false
+                            }
+                        },
+                        {
+                            "name":"field_projection",
+                            "label":"Projection",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "mini":50,
+                                "max":900,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":80,
+                                "required":false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"groupe_dimension_toile_de_store_bras_droits",
+                    "label":"Dimension toile de store bras droits",
+                    "description":"...",
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_largeur",
+                            "label":"Largeur",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":20,
+                                "max":2000,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":100,
+                                "required":false
+                            }
+                        },
+                        {
+                            "name":"field_projection",
+                            "label":"Projection",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "mini":50,
+                                "max":900,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":80,
+                                "required":false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"groupe_dimension_double_pentee",
+                    "label":"Dimension double pente",
+                    "description":"...",
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_largeur",
+                            "label":"Largeur",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":20,
+                                "max":2000,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":100,
+                                "required":false
+                            }
+                        },
+                        {
+                            "name":"field_projection",
+                            "label":"Projection",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "mini":50,
+                                "max":900,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":80,
+                                "required":false
+                            }
+                        },
+                        {
+                            "name":"field_projection_oppose",
+                            "label":"Projection opposée",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "mini":50,
+                                "max":900,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":80,
+                                "required":false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"groupe_dimension_descente_verticale",
+                    "label":"Dimension descente verticale",
+                    "description":"...",
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_largeur",
+                            "label":"Largeur",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":20,
+                                "max":2000,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":100,
+                                "required":false
+                            }
+                        },
+                        {
+                            "name":"field_hauteur",
+                            "label":"Hauteur",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "mini":50,
+                                "max":900,
+                                "step":1,
+                                "unit":"Centimètres (cm)",
+                                "defaultValue":80,
+                                "required":false
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"step_tissus",
+            "label":"Tissus",
+            "groups":[
+                {
+                    "name":"groupe_tissus",
+                    "label":"Tissus",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "fields":[
+                        {
+                            "name":"field_tissus",
+                            "label":"Tissus",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "values":{
+                                    "dickson":{
+                                        "label":"Dickson orchestra",
+                                        "description":"...",
+                                        "fabrics":[
+                                            {
+                                                "label":"Noir uni 1000",
+                                                "value":"dickson_noir_uni_1000",
+                                                "imageUrl":""
+                                            },
+                                            {
+                                                "label":"Bleu uni 1001",
+                                                "value":"dickson_bleu_uni_1001",
+                                                "imageUrl":""
+                                            },
+                                            {
+                                                "label":"Gris rayé 1002",
+                                                "value":"dickson_gris_raye_1002",
+                                                "imageUrl":""
+                                            }
+                                        ]
+                                    },
+                                    "serge_ferrari":{
+                                        "label":"Serge Ferrari",
+                                        "description":"...",
+                                        "fabrics":[
+                                            {
+                                                "label":"Bleu marine navi 1000",
+                                                "value":"sf_bleu_marine_navi_1000",
+                                                "imageUrl":"https://preprod.osyla.com/8971-home_default/toile-de-store-serge-ferrari-bleu-marine-navy-92-50342-soltis-92.jpg"
+                                            },
+                                            {
+                                                "label":"Beton 1001",
+                                                "value":"sf_beton_1001",
+                                                "imageUrl":"https://preprod.osyla.com/22632-home_default/toile-de-store-serge-ferrari-beton-922167-soltis-92.jpg"
+                                            },
+                                            {
+                                                "label":"Champagne 1002",
+                                                "value":"sf_champagne_1002",
+                                                "imageUrl":"https://preprod.osyla.com/22630-home_default/toile-de-store-serge-ferrari-champagne-922175-soltis-92.jpg"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "required":true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"step_fixation",
+            "label":"Fixation",
+            "groups":[
+                {
+                    "name":"groupe_fixation_haute",
+                    "label":"Fixation haute",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "fields":[
+                        {
+                            "name":"field_fixation_haute",
+                            "label":"Fixation haute",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "values":[
+                                    {
+                                        "label":"Couture simple",
+                                        "value":"0.05",
+                                        "secondaryValue":"couture_simple",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390331-thumb.jpg",
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Jonc 3 mm inclus",
+                                        "value":"0.05",
+                                        "secondaryValue":"jonc_3",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/397756-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Jonc 6 mm inclus",
+                                        "value":"0.06",
+                                        "secondaryValue":"jonc_6",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390335-thumb.jpg",
+                                        "default":false
+                                    }
+                                ],
+                                "required":true
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"groupe_fixation_basse",
+                    "label":"Fixation basse",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "fields":[
+                        {
+                            "name":"field_fixation_basse",
+                            "label":"Fixation basse",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "values":[
+                                    {
+                                        "label":"Couture simple",
+                                        "value":"0.05",
+                                        "secondaryValue":"couture_simple",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390331-thumb.jpg",
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Jonc 3 mm inclus",
+                                        "value":"0.05",
+                                        "secondaryValue":"jonc_3",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/397756-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Jonc 6 mm inclus",
+                                        "value":"0.06",
+                                        "secondaryValue":"jonc_6",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390335-thumb.jpg",
+                                        "default":false
+                                    }
+                                ],
+                                "required":true
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"step_lambrequin",
+            "label":"Lambrequin",
+            "groups":[
+                {
+                    "name":"group_lambrequin",
+                    "label":"Lambrequin",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "fields":[
+                        {
+                            "name":"field_lambrequin",
+                            "label":"Lambrequin",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "values":[
+                                    {
+                                        "label":"Sans lambrequin",
+                                        "value":0,
+                                        "secondaryValue":"sans",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390307-thumb.jpg",
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Coupe droite",
+                                        "value":1,
+                                        "secondaryValue":"coupe_droite",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390308-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Coupe ondulée",
+                                        "value":2,
+                                        "secondaryValue":"coupe_ondulee",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390309-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Coupe à vagues",
+                                        "value":3,
+                                        "secondaryValue":"coupe_a_vagues",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390310-thumb.jpg",
+                                        "default":false
+                                    }
+                                ],
+                                "required":true
+                            }
+                        },
+                        {
+                            "name":"field_hauteur_lambrequin",
+                            "label":"Hauteur lambrequin",
+                            "description":null,
+                            "options":{
+                                "type":"select",
+                                "visible":false,
+                                "values":[
+                                    "10 cm",
+                                    "20 cm",
+                                    "30 cm"
+                                ]
+                            }
+                        },
+                        {
+                            "name":"field_fixation_lambrequin",
+                            "label":"Fixation du lambrequin",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "visible":false,
+                                "values":[
+                                    {
+                                        "label":"Couture simple",
+                                        "value":"0.05",
+                                        "secondaryValue":"couture_simple",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390331-thumb.jpg",
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Jonc 3 mm inclus",
+                                        "value":"0.05",
+                                        "secondaryValue":"jonc_3",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/397756-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Jonc 6 mm inclus",
+                                        "value":"0.06",
+                                        "secondaryValue":"jonc_6",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390335-thumb.jpg",
+                                        "default":false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name":"field_couleur_biais_lambrequin",
+                            "label":"Couleur du biais lambrequin",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "visible":false,
+                                "values":[
+                                    {
+                                        "label":"Assorti à la toile",
+                                        "value":0,
+                                        "secondaryValue":"Assorti",
+                                        "imageUrl":"https://preprod.osyla.com/modules/dynamicproduct/views/img/empty.png"
+                                    },
+                                    {
+                                        "label":"Jaune",
+                                        "value":1,
+                                        "secondaryValue":"Jaune",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/dropdown/254197-thumb.jpg"
+                                    },
+                                    {
+                                        "label":"Orange",
+                                        "value":2,
+                                        "secondaryValue":"Orange",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/dropdown/254198-thumb.jpg"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name":"step_options",
+            "label":"Options",
+            "groups":[
+                {
+                    "name":"group_options",
+                    "label":"Options supplémentaires",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "fields":[
+                        {
+                            "name":"field_options",
+                            "label":"Options",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "multipleValues":true,
+                                "values":[
+                                    {
+                                        "label":"Sans option",
+                                        "value":0,
+                                        "secondaryValue":"sans",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390311-thumb.jpg",
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Renfort de lyre",
+                                        "value":1,
+                                        "secondaryValue":"lyre",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390316-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Texte personnalisé (PRO uniquement)",
+                                        "value":2,
+                                        "secondaryValue":"off",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390312-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Agrafes",
+                                        "value":3,
+                                        "secondaryValue":"agrafe",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390311-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Clips",
+                                        "value":4,
+                                        "secondaryValue":"clips",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390314-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Oeillet lambrequin",
+                                        "value":5,
+                                        "secondaryValue":"off",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390315-thumb.jpg",
+                                        "default":false
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"group_renfort_de_lyre",
+                    "label":"Renfort de lyre",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_nombre_de_renfort_lyre",
+                            "label":"Combien de renfort avez-vous besoin ?",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":1,
+                                "max":10,
+                                "unitPrice":5
+                            }
+                        },
+                        {
+                            "name":"field_position_renfort_lyre",
+                            "label":"Position renfort lyre",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":0,
+                                "max":10
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"group_personnalisation_toile",
+                    "label":"Personnalisation de toile",
+                    "description":"Pour tout flocage choisi il faut rajouter minimum 2 semaines au délai annoncé. Ce délai va dépendre de votre réactivité à valider votre bon à tirer.",
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_formule_flocage",
+                            "label":"Formule du flocage",
+                            "description":"Un logo est uniquement une représentation graphique. Un logo ne doit pas contenir du texte ou une phrase. Quelle que soit la typographie du logo, si une lettre ou texte est présente, il s'agira automatiquement d'un logo + texte. La facturation étant à la lettre, toutes lettres, peu importe sa typographie (ou police d'écriture) est considérées comme du texte.",
+                            "options":{
+                                "type":"select",
+                                "values":[
+                                    {
+                                        "label":"Texte uniquement",
+                                        "value":3,
+                                        "default":true
+                                    },
+                                    {
+                                        "label":"Logo uniquement",
+                                        "value":2,
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Logo + texte",
+                                        "value":1,
+                                        "default":false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name":"field_police_ecriture",
+                            "label":"Police d'écriture",
+                            "description":null,
+                            "options":{
+                                "type":"select_images",
+                                "values":[
+                                    {
+                                        "label":"Arial",
+                                        "value":"arial",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390366-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Broadway",
+                                        "value":"broadway",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390367-thumb.jpg",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Autre police à envoyer par mail",
+                                        "value":"other",
+                                        "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390378-thumb.jpg",
+                                        "default":false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name":"field_personnalisation_texte",
+                            "label":"Texte à inscrire",
+                            "description":null,
+                            "options":{
+                                "type":"text"
+                            }
+                        },
+                        {
+                            "name":"field_couleur_texte",
+                            "label":"Couleur du texte",
+                            "options":{
+                                "type":"select",
+                                "values":[
+                                    {
+                                        "label":"Blanc",
+                                        "value":"blanc",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Bleu",
+                                        "value":"bleu",
+                                        "default":false
+                                    },
+                                    {
+                                        "label":"Rouge",
+                                        "value":"rouge",
+                                        "default":false
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "name":"field_texte_personnalisation",
+                            "label":"description sur la position du texte et/ou police",
+                            "description":null,
+                            "options":{
+                                "type":"textarea",
+                                "placeholder":"Détaillez la position des textes et logos ici..."
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"group_agrafes",
+                    "label":"Agrafes",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_agrafe_lot_50_quantite",
+                            "label":"Quantité de lot de 50 agrafes",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":1,
+                                "max":5,
+                                "unitPrice":5
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"group_clips",
+                    "label":"Clips",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_clips_quantite",
+                            "label":"Quantité de clips",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":1,
+                                "max":10,
+                                "unitPrice":5
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name":"group_oeillet_sur_lambrequin",
+                    "label":"Oeillet sur lambrequin",
+                    "description":null,
+                    "helpUrl":null,
+                    "imageUrl":null,
+                    "visible":false,
+                    "fields":[
+                        {
+                            "name":"field_oeillet_quantite",
+                            "label":"Quantité d'oeillet",
+                            "description":null,
+                            "options":{
+                                "type":"number",
+                                "min":1,
+                                "max":100,
+                                "unitPrice":5
+                            }
+                        },
+                        {
+                            "name":"field_position_oeillet",
+                            "label":"Position des oeillets",
+                            "description":null,
+                            "options":{
+                                "type":"textarea"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "conditions":[],
+    "formula":[]
+}
