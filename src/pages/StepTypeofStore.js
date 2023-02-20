@@ -17,9 +17,12 @@ function StepTypeOfStore({ handleRadioClick, selectOption, openGroup, steps }) {
             if (field.options.values) {
               const options = field.options.values.map((option) => {
                 return {
+                  <Radios
                   label: option.label,
                   value: option.value,
                   imageUrl: option.imageUrl,
+            />
+
                 };
               });
               console.log(options);
