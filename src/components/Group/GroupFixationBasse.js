@@ -11,10 +11,10 @@ export default function GroupFixationBasse() {
           input: {
             type: "radio",
             name: "radio",
-            id: "couture_simple",
+            id: "fixation_basse_couture_simple",
           },
           label: {
-            htmlFor: "couture_simple",
+            htmlFor: "fixation_basse_couture_simple",
             text: "Couture simple",
           },
           img: {
@@ -26,10 +26,10 @@ export default function GroupFixationBasse() {
           input: {
             type: "radio",
             name: "radio",
-            id: "jonc",
+            id: "fixation_basse_jonc",
           },
           label: {
-            htmlFor: "jonc",
+            htmlFor: "fixation_basse_jonc",
             text: "Jonc",
           },
           img: {
@@ -41,14 +41,14 @@ export default function GroupFixationBasse() {
           input: {
             type: "radio",
             name: "radio",
-            id: "fourreau",
+            id: "fixation_basse_fourreau",
           },
           label: {
-            htmlFor: "store_double_pente",
-            text: "Toile de store double pente",
+            htmlFor: "fixation_basse_fourreau",
+            text: "Fourreau",
           },
           img: {
-            alt: "Illustration d'une fixation avec fourreau",
+            alt: "Illustration d'un fourreau",
             src: "./img/fourreau.jpeg",
           },
         },

@@ -44,11 +44,11 @@ export default function GroupFixationHaute({ handleRadioClick }) {
             id: "fourreau",
           },
           label: {
-            htmlFor: "store_double_pente",
-            text: "Toile de store double pente",
+            htmlFor: "fourreau",
+            text: "Fourreau",
           },
           img: {
-            alt: "Illustration d'une fixation avec fourreau",
+            alt: "Illustration d'un fourreau",
             src: "./img/fourreau.jpeg",
           },
         },
@@ -69,6 +69,7 @@ export default function GroupFixationHaute({ handleRadioClick }) {
             <Radios
               radios={element.radios}
               handleRadioClick={handleRadioClick}
+              key={i}
             />
           </>
         );

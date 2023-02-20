@@ -1,9 +1,9 @@
-import "./_header.scss";
+import "./header.scss";
 
 export default function Header({ handleReduceModal }) {
   return (
-    <div className="header">
-      <button className="btn_reduce" onClick={handleReduceModal}></button>
+    <div className="header" onClick={handleReduceModal}>
+      <button className="btn_reduce"></button>
       <div className="header_content">
         <span>
           <ion-icon name="aperture-outline"></ion-icon>Votre configuration

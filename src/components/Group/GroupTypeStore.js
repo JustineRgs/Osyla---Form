@@ -85,6 +85,7 @@ export default function GroupTypeStore({ handleRadioClick }) {
             <Radios
               radios={element.radios}
               handleRadioClick={handleRadioClick}
+              key={i}
             />
           </>
         );
