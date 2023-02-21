@@ -4,7 +4,8 @@ import Radios from "../components/Radios/Radios";
 import Input from "../components/imputs/Imputs";
 
 function StepTypeOfStore({ handleRadioClick, selectOption, openGroup, steps }) {
-  return steps.groups.map((group) => {
+  return steps.groups.map((group, i) => {
+    // console.log("group :", group);
     return (
       <div className="group">
         <h1>{group.label}</h1>
@@ -13,35 +14,39 @@ function StepTypeOfStore({ handleRadioClick, selectOption, openGroup, steps }) {
             <p>{group.description}</p>
           </div>
         )}
-        {group.fields.map((field, i) => {
-          if (field.options.values) {
-            return field.options.values.map((option, i) => {
+        <div className="pouet">
+          {group.fields.map((field, i) => {
+            console.log(field);
+
+            if (field.type === "select_images") {
+              return field.options.map((option, i) => {
+                return (
+                  <Radios
+                    label={option.label}
+                    value={option.value}
+                    id={option.name}
+                    imageUrl={option.imageUrl}
+                    handleRadioClick={handleRadioClick}
+                    key={i}
+                  />
+                );
+              });
+            }
+            if (field.type === "number") {
               return (
-                <Radios
-                  label={option.label}
-                  value={option.value}
-                  id={option.name}
-                  imageUrl={option.imageUrl}
-                  handleRadioClick={handleRadioClick}
-                  key={i}
-                />
+                <div className="container-input-dimension">
+                  <Input
+                    label={field.label}
+                    option={field.option}
+                    id={field.name}
+                    handleRadioClick={handleRadioClick}
+                    key={i}
+                  />
+                </div>
               );
-            });
-          }
-          if (field.options.type === "number") {
-            return (
-              <div className="container-input-dimension">
-                <Input
-                  label={field.label}
-                  option={field.option}
-                  id={field.name}
-                  handleRadioClick={handleRadioClick}
-                  key={i}
-                />
-              </div>
-            );
-          }
-        })}
+            }
+          })}
+        </div>
       </div>
     );
   });
