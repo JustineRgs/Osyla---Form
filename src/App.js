@@ -52,6 +52,7 @@ function App() {
         <StepFixation
           handleRadioClick={handleRadioClick}
           openGroup={openGroup}
+          steps={form.steps[2]}
         />
       ),
     },

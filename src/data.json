@@ -311,6 +311,7 @@
                                     {
                                         "label":"Couture simple",
                                         "value":"0.05",
+                                        "name":"couture_simple",
                                         "secondaryValue":"couture_simple",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390331-thumb.jpg",
                                         "default":true
@@ -318,6 +319,7 @@
                                     {
                                         "label":"Jonc 3 mm inclus",
                                         "value":"0.05",
+                                        "name":"jonc_3",
                                         "secondaryValue":"jonc_3",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/397756-thumb.jpg",
                                         "default":false
@@ -325,6 +327,7 @@
                                     {
                                         "label":"Jonc 6 mm inclus",
                                         "value":"0.06",
+                                        "name":"jonc_6",
                                         "secondaryValue":"jonc_6",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390335-thumb.jpg",
                                         "default":false
@@ -352,6 +355,7 @@
                                     {
                                         "label":"Couture simple",
                                         "value":"0.05",
+                                        "name":"fixation_basse_couture_simple",
                                         "secondaryValue":"couture_simple",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390331-thumb.jpg",
                                         "default":true
@@ -359,6 +363,7 @@
                                     {
                                         "label":"Jonc 3 mm inclus",
                                         "value":"0.05",
+                                        "name":"fixation_basse_jonc_3",
                                         "secondaryValue":"jonc_3",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/397756-thumb.jpg",
                                         "default":false
@@ -366,6 +371,7 @@
                                     {
                                         "label":"Jonc 6 mm inclus",
                                         "value":"0.06",
+                                        "name":"fixation_basse_jonc_6",
                                         "secondaryValue":"jonc_6",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390335-thumb.jpg",
                                         "default":false
