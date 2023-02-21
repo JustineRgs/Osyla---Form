@@ -14,13 +14,13 @@ export default function Radios({
         <input
           type="radio"
           name="radio"
-          // value={id}
           id={id}
+          value={value}
           key={i}
           onClick={() => handleRadioClick(id)}
         />
         <div className="radio-img">
-          <label htmlFor={value}>
+          <label htmlFor={id}>
             <img alt={label} src={imageUrl} />
             {label}
           </label>

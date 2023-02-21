@@ -13,6 +13,7 @@
     color: #000000;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .radio-img img {
@@ -34,7 +35,6 @@
     left: 0;
     height: 100%;
     width: 100%;
-    cursor: pointer;
 }
 
 .select_img input:checked+.radio-img {
