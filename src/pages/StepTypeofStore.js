@@ -7,20 +7,22 @@ function StepTypeOfStore({ handleRadioClick, selectOption, openGroup, steps }) {
     return (
       <div className="group">
         <h1>{group.label}</h1>
-        {group.description && (
+        {group.description != "..." && (
           <div className="briefing">
             <p>{group.description}</p>
           </div>
         )}
         {group.fields.map((field) => {
           if (field.options.values) {
-            return field.options.values.map((option) => {
+            return field.options.values.map((option, i) => {
               return (
                 <Radios
                   label={option.label}
                   value={option.value}
+                  id={option.name}
                   imageUrl={option.imageUrl}
                   handleRadioClick={handleRadioClick}
+                  key={i}
                 />
               );
             });

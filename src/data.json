@@ -23,24 +23,28 @@
                                 "values":[
                                     {
                                         "label":"Toile de store banne",
+                                        "name":"field_type_toile_a_remplacer_option_toile_de_store_banne",
                                         "value":"simple",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390289-thumb.jpg",
                                         "default":true
                                     },
                                     {
                                         "label":"Toile de store bras droits",
+                                        "name":"field_type_toile_a_remplacer_option_toile_de_store_bras_droits",
                                         "value":"simple",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390290-thumb.jpg",
                                         "default":false
                                     },
                                     {
                                         "label":"Toile store double pente",
+                                        "name":"field_type_toile_a_remplacer_option_toile_de_store_double_pente",
                                         "value":"double_pente",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390291-thumb.jpg",
                                         "default":false
                                     },
                                     {
                                         "label":"Toile de store à descente verticale",
+                                        "name":"field_type_toile_a_remplacer_option_toile_de_store_a_descente_verticale",
                                         "value":"simple_vertical",
                                         "imageUrl":"https://preprod.osyla.com/dynamicproduct/images/thumbnails/390292-thumb.jpg",
                                         "default":false
