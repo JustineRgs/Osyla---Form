@@ -4,8 +4,8 @@ import Radios from "../components/Radios/Radios";
 import Input from "../components/imputs/Imputs";
 
 function StepTypeOfStore({ handleRadioClick, selectOption, openGroup, steps }) {
-  return steps.groups.map((group, i) => {
-    // console.log("group :", group);
+  return steps.groups.map((group) => {
+    console.log(group.fields);
     return (
       <div className="group">
         <h1>{group.label}</h1>
@@ -14,39 +14,23 @@ function StepTypeOfStore({ handleRadioClick, selectOption, openGroup, steps }) {
             <p>{group.description}</p>
           </div>
         )}
-        <div className="pouet">
-          {group.fields.map((field, i) => {
-            console.log(field);
+        {group.fields.map((field, i) => {
+          if (field.type === "select_images") {
+            return <Radios options={field.options} />;
+          }
 
-            if (field.type === "select_images") {
-              return field.options.map((option, i) => {
-                return (
-                  <Radios
-                    label={option.label}
-                    value={option.value}
-                    id={option.name}
-                    imageUrl={option.imageUrl}
-                    handleRadioClick={handleRadioClick}
-                    key={i}
-                  />
-                );
-              });
-            }
-            if (field.type === "number") {
-              return (
-                <div className="container-input-dimension">
-                  <Input
-                    label={field.label}
-                    option={field.option}
-                    id={field.name}
-                    handleRadioClick={handleRadioClick}
-                    key={i}
-                  />
-                </div>
-              );
-            }
-          })}
-        </div>
+          if (field.type === "number") {
+            return (
+              <Input
+                label={field.label}
+                option={field.option}
+                id={field.name}
+                handleRadioClick={handleRadioClick}
+                key={i}
+              />
+            );
+          }
+        })}
       </div>
     );
   });

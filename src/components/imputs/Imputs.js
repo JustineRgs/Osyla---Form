@@ -2,13 +2,15 @@ import "./imputs.scss";
 
 export default function Input({ label, id, option, selectOption, i }) {
   return (
-    <label htmlFor={id}>
-      {label}
-      <div className="content-input">
-        <input name={id} key={i} />
-        <span>cm</span>
-      </div>
-    </label>
+    <div className="container-input-dimension">
+      <label htmlFor={id}>
+        {label}
+        <div className="content-input">
+          <input name={id} key={i} />
+          <span>cm</span>
+        </div>
+      </label>
+    </div>
   );
 }
 

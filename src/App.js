@@ -113,7 +113,7 @@ function App() {
           <div className={`modal ${reduceModal ? "reduce" : ""}`}>
             <Header handleReduceModal={handleReduceModal} />
 
-            <div className="stage">
+            <div className="step">
               <Routes>{routeElements}</Routes>
 
               <Paginator setOpenGroup={setOpenGroup} stepsURL={stepsURL} />

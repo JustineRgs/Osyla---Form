@@ -1,31 +1,26 @@
 import "./radios.scss";
 
-export default function Radios({
-  i,
-  label,
-  value,
-  id,
-  imageUrl,
-  handleRadioClick,
-}) {
+export default function Radios({ options, handleRadioClick }) {
   return (
-    <>
-      <div className="select_img">
-        <input
-          type="radio"
-          name="radio"
-          id={id}
-          value={value}
-          key={i}
-          onClick={() => handleRadioClick(id)}
-        />
-        <div className="radio-img">
-          <label htmlFor={id}>
-            <img alt={label} src={imageUrl} />
-            {label}
-          </label>
-        </div>
-      </div>
-    </>
+    <ul className="field">
+      {options.map((option, i) => (
+        <li className="select_img">
+          <input
+            type="radio"
+            name="radio"
+            id={option.name}
+            value={option.value}
+            key={i}
+            onClick={() => handleRadioClick(option.name)}
+          />
+          <div className="radio-img">
+            <label htmlFor={option.name}>
+              <img alt={option.label} src={option.imageUrl} />
+              {option.label}
+            </label>
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 }
