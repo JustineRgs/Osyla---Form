@@ -1,6 +1,7 @@
 import GroupFixationHaute from "../components/Group/GroupFixationHaute";
 import GroupFixationBasse from "../components/Group/GroupFixationBasse";
 import Radios from "../components/Radios/Radios";
+import Select from "../components/Select/Select";
 
 function StepFixation({ steps, handleRadioClick, selectOption, openGroup }) {
   return steps.groups.map((group) => {
@@ -12,8 +13,8 @@ function StepFixation({ steps, handleRadioClick, selectOption, openGroup }) {
             <p>{group.description}</p>
           </div>
         )}
-
-        <div className={group.fields.length > 1 ? "fields" : ""}>
+        {/* className={group.fields.length > 1 ? "fields" : ""} */}
+        <div>
           {group.fields.map((field) => {
             if (field.type === "select_images") {
               return (

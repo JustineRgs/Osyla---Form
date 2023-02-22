@@ -1,17 +1,19 @@
 import Radios from "../components/Radios/Radios";
 import Input from "../components/imputs/Imputs";
 import { useState } from "react";
+import Select from "../components/Select/Select";
 
 function StepTypeOfStore({
   steps,
   handleRadioClick,
   visibleGroup,
   defaultGroups,
+  groupRef,
 }) {
   return steps.groups.map((group) => {
     if (group.name === defaultGroups || group.name === visibleGroup) {
       return (
-        <div className="group">
+        <div className="group" id={group.name} ref={groupRef}>
           <h1>{group.label}</h1>
           {group.description && group.description != "..." && (
             <div className="briefing">
@@ -33,6 +35,17 @@ function StepTypeOfStore({
               if (field.type === "number") {
                 return (
                   <Input
+                    label={field.label}
+                    option={field.option}
+                    id={field.name}
+                    handleRadioClick={handleRadioClick}
+                  />
+                );
+              }
+
+              if (field.type === "select") {
+                return (
+                  <Select
                     label={field.label}
                     option={field.option}
                     id={field.name}

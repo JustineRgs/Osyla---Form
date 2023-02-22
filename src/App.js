@@ -1,6 +1,6 @@
 import "./App.scss";
 import data from "./data.json";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header/Header";
 import StepTypeOfStore from "./pages/StepTypeofStore";
@@ -11,9 +11,7 @@ import Paginator from "./components/Paginator/Paginator";
 
 function App() {
   const [form, setForm] = useState(data);
-  const [defaultGroups, setDefaultGroups] = useState(
-    "field_group_type_de_toile"
-  );
+
   const [visibleGroup, setVisibleGroup] = useState(null);
   // Ouverture group 2 au click sur un élement du group 1
   const [openGroup, setOpenGroup] = useState(false);
@@ -30,32 +28,40 @@ function App() {
   // Etat de l'overlay : Ouvert ou fermée
   const [showOverlay, setShowOverlay] = useState(false);
 
-  //Au click sur une option : recuperation de l'id pour vérif : quel groupe 2 ouvrir ?
+  const [defaultGroups, setDefaultGroups] = useState(
+    "field_group_type_de_toile"
+  );
+
+  const groupRef = useRef(null);
+
+  //Au click sur une option : recuperation de l'objet pour vérif : quel groupe 2 ouvrir ?
   const handleRadioClick = (option) => {
-    setOpenGroup(true);
     setSelectOption(option);
-    if (
-      option.name === "field_type_toile_a_remplacer_option_toile_de_store_banne"
-    ) {
-      setVisibleGroup("field_group_dimension_toile_de_store_banne");
-    } else if (
-      option.name ===
-      "field_type_toile_a_remplacer_option_toile_de_store_bras_droits"
-    ) {
-      setVisibleGroup("field_group_dimension_toile_de_store_bras_droits");
-    } else if (
-      option.name ===
-      "field_type_toile_a_remplacer_option_toile_de_store_double_pente"
-    ) {
-      setVisibleGroup("field_group_dimension_double_pente");
-    } else if (
-      option.name ===
-      "field_type_toile_a_remplacer_option_toile_de_store_a_descente_verticale"
-    ) {
-      setVisibleGroup("field_group_dimension_descente_verticale");
-    } else {
-      setVisibleGroup(null);
-    }
+
+    // Je fais correspondre le nom des options au nom des groupes
+    const groupMapping = {
+      field_type_toile_a_remplacer_option_toile_de_store_banne:
+        "field_group_dimension_toile_de_store_banne",
+      field_type_toile_a_remplacer_option_toile_de_store_bras_droits:
+        "field_group_dimension_toile_de_store_bras_droits",
+      field_type_toile_a_remplacer_option_toile_de_store_double_pente:
+        "field_group_dimension_double_pente",
+      field_type_toile_a_remplacer_option_toile_de_store_a_descente_verticale:
+        "field_group_dimension_descente_verticale",
+    };
+
+    // Utilisation de groupMapping pour obtenir le nom du groupe correspondant à l'option sélectionnée. Si l'option ne correspond à aucun groupe -> null.
+    const visibleGroup = groupMapping[option.name] || null;
+    setVisibleGroup(visibleGroup);
+
+    setTimeout(() => {
+      if (visibleGroup) {
+        groupRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }, 0);
   };
 
   // Tableau d'étape
@@ -69,6 +75,7 @@ function App() {
           openGroup={openGroup}
           visibleGroup={visibleGroup}
           defaultGroups={defaultGroups}
+          groupRef={groupRef}
           steps={form.steps[0]}
         />
       ),
@@ -89,6 +96,7 @@ function App() {
         <StepLambrequin
           handleRadioClick={handleRadioClick}
           openGroup={openGroup}
+          steps={form.steps[3]}
         />
       ),
     },
