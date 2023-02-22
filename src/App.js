@@ -1,23 +1,13 @@
 import "./App.scss";
-import data from "./data.json";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import data from "./data.json";
 import Header from "./components/Header/Header";
-import StepTypeOfStore from "./pages/StepTypeofStore";
-import StepFixation from "./pages/StepFixation";
-import StepLambrequin from "./pages/StepLambrequin";
-import StepOptions from "./pages/StepOptions";
+import Step from "./pages/Step";
 import Paginator from "./components/Paginator/Paginator";
 
 function App() {
   const [form, setForm] = useState(data);
-
-  const [visibleGroup, setVisibleGroup] = useState(null);
-  // Ouverture group 2 au click sur un élement du group 1
-  const [openGroup, setOpenGroup] = useState(false);
-
-  // Récupération de l'id de l'option selectionner pour ouvrir group 2 correspondant
-  const [selectOption, setSelectOption] = useState(null);
 
   // Etat de la modale : Ouverte ou fermée
   const [showModal, setShowModal] = useState(false);
@@ -28,79 +18,24 @@ function App() {
   // Etat de l'overlay : Ouvert ou fermée
   const [showOverlay, setShowOverlay] = useState(false);
 
-  const [defaultGroups, setDefaultGroups] = useState(
-    "field_group_type_de_toile"
-  );
-
-  const groupRef = useRef(null);
-
-  //Au click sur une option : recuperation de l'objet pour vérif : quel groupe 2 ouvrir ?
-  const handleRadioClick = (option) => {
-    setSelectOption(option);
-
-    // Je fais correspondre le nom des options au nom des groupes
-    const groupMapping = {
-      field_type_toile_a_remplacer_option_toile_de_store_banne:
-        "field_group_dimension_toile_de_store_banne",
-      field_type_toile_a_remplacer_option_toile_de_store_bras_droits:
-        "field_group_dimension_toile_de_store_bras_droits",
-      field_type_toile_a_remplacer_option_toile_de_store_double_pente:
-        "field_group_dimension_double_pente",
-      field_type_toile_a_remplacer_option_toile_de_store_a_descente_verticale:
-        "field_group_dimension_descente_verticale",
-    };
-
-    // Utilisation de groupMapping pour obtenir le nom du groupe correspondant à l'option sélectionnée. Si l'option ne correspond à aucun groupe -> null.
-    const visibleGroup = groupMapping[option.name] || null;
-    setVisibleGroup(visibleGroup);
-
-    setTimeout(() => {
-      if (visibleGroup) {
-        groupRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
-    }, 0);
-  };
-
   // Tableau d'étape
   const stepsURL = [
     {
       path: "/step1",
-      element: (
-        <StepTypeOfStore
-          handleRadioClick={handleRadioClick}
-          selectOption={selectOption}
-          openGroup={openGroup}
-          visibleGroup={visibleGroup}
-          defaultGroups={defaultGroups}
-          groupRef={groupRef}
-          steps={form.steps[0]}
-        />
-      ),
+      element: <Step steps={form.steps[0]} />,
     },
     {
       path: "/step2",
-      element: (
-        <StepFixation
-          handleRadioClick={handleRadioClick}
-          openGroup={openGroup}
-          steps={form.steps[2]}
-        />
-      ),
+      element: <Step steps={form.steps[2]} />,
     },
     {
       path: "/step3",
-      element: (
-        <StepLambrequin
-          handleRadioClick={handleRadioClick}
-          openGroup={openGroup}
-          steps={form.steps[3]}
-        />
-      ),
+      element: <Step steps={form.steps[3]} />,
     },
-    { path: "/step4", element: <StepOptions /> },
+    {
+      path: "/step4",
+      element: <Step steps={form.steps[4]} />,
+    },
   ];
 
   // Création de la route correspondante à stepsURL[i]
@@ -151,7 +86,7 @@ function App() {
             <div className="step">
               <Routes>{routeElements}</Routes>
 
-              <Paginator setOpenGroup={setOpenGroup} stepsURL={stepsURL} />
+              <Paginator stepsURL={stepsURL} />
 
               <span className="modal_close" onClick={handleCloseModal}>
                 Abandonner la configuration
