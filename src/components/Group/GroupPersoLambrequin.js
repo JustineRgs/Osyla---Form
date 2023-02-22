@@ -1,4 +1,3 @@
-import "./group.scss";
 import Select from "../Select/Select";
 import Radios from "../Radios/Radios";
 

@@ -11,7 +11,10 @@ import Paginator from "./components/Paginator/Paginator";
 
 function App() {
   const [form, setForm] = useState(data);
-
+  const [defaultGroups, setDefaultGroups] = useState(
+    "field_group_type_de_toile"
+  );
+  const [visibleGroup, setVisibleGroup] = useState(null);
   // Ouverture group 2 au click sur un élement du group 1
   const [openGroup, setOpenGroup] = useState(false);
 
@@ -28,9 +31,31 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false);
 
   //Au click sur une option : recuperation de l'id pour vérif : quel groupe 2 ouvrir ?
-  const handleRadioClick = (selectedOption) => {
+  const handleRadioClick = (option) => {
     setOpenGroup(true);
-    setSelectOption(selectedOption);
+    setSelectOption(option);
+    if (
+      option.name === "field_type_toile_a_remplacer_option_toile_de_store_banne"
+    ) {
+      setVisibleGroup("field_group_dimension_toile_de_store_banne");
+    } else if (
+      option.name ===
+      "field_type_toile_a_remplacer_option_toile_de_store_bras_droits"
+    ) {
+      setVisibleGroup("field_group_dimension_toile_de_store_bras_droits");
+    } else if (
+      option.name ===
+      "field_type_toile_a_remplacer_option_toile_de_store_double_pente"
+    ) {
+      setVisibleGroup("field_group_dimension_double_pente");
+    } else if (
+      option.name ===
+      "field_type_toile_a_remplacer_option_toile_de_store_a_descente_verticale"
+    ) {
+      setVisibleGroup("field_group_dimension_descente_verticale");
+    } else {
+      setVisibleGroup(null);
+    }
   };
 
   // Tableau d'étape
@@ -42,6 +67,8 @@ function App() {
           handleRadioClick={handleRadioClick}
           selectOption={selectOption}
           openGroup={openGroup}
+          visibleGroup={visibleGroup}
+          defaultGroups={defaultGroups}
           steps={form.steps[0]}
         />
       ),

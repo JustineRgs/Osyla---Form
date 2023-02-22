@@ -1,4 +1,3 @@
-import "./group.scss";
 import Radios from "../Radios/Radios";
 
 export default function GroupOptions() {

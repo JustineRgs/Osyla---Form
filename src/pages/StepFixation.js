@@ -2,12 +2,7 @@ import GroupFixationHaute from "../components/Group/GroupFixationHaute";
 import GroupFixationBasse from "../components/Group/GroupFixationBasse";
 import Radios from "../components/Radios/Radios";
 
-function StepFixation({
-  openGroup,
-  handleRadioClick,
-  handleClickPaginator,
-  steps,
-}) {
+function StepFixation({ steps, handleRadioClick, selectOption, openGroup }) {
   return steps.groups.map((group) => {
     return (
       <div className="group">
@@ -17,22 +12,19 @@ function StepFixation({
             <p>{group.description}</p>
           </div>
         )}
-        {group.fields.map((field, i) => {
-          if (field.options.values) {
-            return field.options.values.map((option, i) => {
+
+        <div className={group.fields.length > 1 ? "fields" : ""}>
+          {group.fields.map((field) => {
+            if (field.type === "select_images") {
               return (
                 <Radios
-                  label={option.label}
-                  value={option.value}
-                  id={option.name}
-                  imageUrl={option.imageUrl}
                   handleRadioClick={handleRadioClick}
-                  key={i}
+                  options={field.options}
                 />
               );
-            });
-          }
-        })}
+            }
+          })}
+        </div>
       </div>
     );
   });

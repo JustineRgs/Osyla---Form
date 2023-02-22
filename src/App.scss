@@ -93,3 +93,19 @@ ion-icon {
     margin-top: 63px;
 }
 
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.group {
+    margin: 24px;
+}
+
+.briefing {
+    border: 1px dashed #A7AEC7;
+    border-radius: 5px;
+    padding: 12px;
+}

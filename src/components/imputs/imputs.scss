@@ -1,17 +1,12 @@
-.container-input-dimension {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 15px;
-}
 
-.container-input-dimension label {
+
+.label-input {
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.container-input-dimension input {
+.input-number {
     border: 1px solid #A7AEC7;
     border-radius: 5px;
     width: 145px;
