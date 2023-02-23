@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 /* poppins : 300 */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
@@ -15,6 +17,7 @@
     width: 100vw;
     height: 100vh;
     position: relative;
+    background-color: $primary-color; 
 }
 
 body {

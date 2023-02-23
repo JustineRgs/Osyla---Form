@@ -1,8 +1,9 @@
-import Radios from "../components/Radios/Radios";
-import Input from "../components/imputs/Imputs";
+import SelectImage from "../components/SelectImage/SelectImage";
+import Number from "../components/Number/Number";
 import Select from "../components/Select/Select";
 import { useState } from 'react';
 import { useRef } from 'react';
+import TextArea from "../components/TextArea/TextArea";
 
 function Step({ steps }) {
 
@@ -38,6 +39,11 @@ function Step({ steps }) {
       field_fixation_haute_option_couture_simple: "field_group_fixation_basse",
       field_fixation_haute_option_jonc_3mm: "field_group_fixation_basse",
       field_fixation_haute_option_jonc_6mm: "field_group_fixation_basse",
+      field_options_option_renfort_lyre: "field_group_renfort_lyre",
+      field_options_option_text_personnalise: "field_group_personnalisation_toile",
+      field_options_option_agrafes: "field_group_agrafes",
+      field_options_option_clips: "field_group_clips",
+      field_options_option_oeillet_lambrequin: "field_group_oeillet_sur_lambrequin",
     };
 
     // Utilisation de groupMapping pour obtenir le nom du groupe correspondant à l'option sélectionnée. Si l'option ne correspond à aucun groupe -> null.
@@ -55,7 +61,7 @@ function Step({ steps }) {
   };
 
   return steps.groups.map((group) => {
-    // Affichage des groupes afficher par default OU qui ont étaient set en visible
+    // Affichage des groupes affichés par default OU qui ont étaient set en 'visible'
     if (defaultGroups.includes(group.name) || group.name === visibleGroup) {
       return (
         <div className="group" id={group.name} ref={groupRef}>
@@ -68,9 +74,12 @@ function Step({ steps }) {
 
           <div className={(group.name === "field_group_dimension_toile_de_store_banne" || group.name === "field_group_dimension_toile_de_store_bras_droits" || group.name === "field_group_dimension_double_pente" || group.name === "field_group_dimension_descente_verticale"  ) ? "fields" : ""}>
             {group.fields.map((field, i) => {
+
               if (field.type === "select_images") {
                 return (
-                  <Radios
+                  <SelectImage
+                    label={field.label}
+                    id={field.name}
                     handleRadioClick={handleRadioClick}
                     options={field.options}
                   />
@@ -79,11 +88,9 @@ function Step({ steps }) {
 
               if (field.type === "number") {
                 return (
-                  <Input
+                  <Number
+                    id={field.name} 
                     label={field.label}
-                    option={field.option}
-                    id={field.name}
-                    handleRadioClick={handleRadioClick}
                   />
                 );
               }
@@ -91,6 +98,16 @@ function Step({ steps }) {
               if (field.type === "select") {
                 return (
                   <Select
+                    label={field.label}
+                    options={field.options}
+                    id={field.name}
+                  />
+                );
+              }
+
+              if (field.type === "textarea") {
+                return (
+                  <TextArea
                     label={field.label}
                     options={field.options}
                     id={field.name}
