@@ -1,7 +1,8 @@
-import "./selectImage.scss";
+import style from "./_selectImage.module.scss";
+
 import { useState } from "react";
 
-export default function SelectImage({ options, handleRadioClick, label, id }) {
+export default function SelectImage({ label, options, id, handleRadioClick }) {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionClick = (option) => {
@@ -20,9 +21,10 @@ export default function SelectImage({ options, handleRadioClick, label, id }) {
           alt="icon d'information"
         ></ion-icon>
       </label>
-      <ul className="field" name={options.name}>
+
+      <ul name={id}>
         {options.map((option, i) => (
-          <li className="select_img" key={i}>
+          <li className={style.container_select} key={i}>
             <input
               type="radio"
               name={options.name}
@@ -31,7 +33,8 @@ export default function SelectImage({ options, handleRadioClick, label, id }) {
               checked={option === selectedOption}
               onClick={() => handleOptionClick(option)}
             />
-            <div className="radio-img">
+
+            <div className={style.content_select}>
               <label htmlFor={option.name}>
                 <img alt={option.label} src={option.imageUrl} />
                 {option.label}

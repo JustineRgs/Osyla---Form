@@ -1,12 +1,12 @@
-import "./Number.scss";
+import style from "./_number.module.scss";
 
 export default function Number({ id, label }) {
   return (
-    <div className="label-input">
+    <div className={style.container_input}>
       <label htmlFor={id}>{label}</label>
 
-      <div className="content-input">
-        <input className="input-number" name={id} />
+      <div className={style.content_input}>
+        <input name={id} />
         <span>cm</span>
       </div>
     </div>

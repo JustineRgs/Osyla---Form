@@ -1,5 +1,5 @@
-import "./App.scss";
-import { useState } from "react";
+import "./_app.scss";
+import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import data from "./data.json";
 import Header from "./components/Header/Header";
@@ -7,6 +7,7 @@ import Step from "./pages/Step";
 import Paginator from "./components/Paginator/Paginator";
 
 function App() {
+
   const [form, setForm] = useState(data);
 
   // Etat de la modale : Ouverte ou fermée
@@ -43,6 +44,17 @@ function App() {
     <Route key={index} path={step.path} element={step.element} />
   ));
 
+  // Action : Ouvrir la modale + overlay. Si déjà ouvert mais réduit -> enleve le 'reduce'
+  const handleButtonClick = () => {
+    if (reduceModal === false) {
+      setShowModal(true);
+      setShowOverlay(true);
+    }
+    if (reduceModal === true) {
+      handleReduceModal();
+    }
+  };
+
   // Action : Réduire modale + Réduire overlay
   const handleReduceModal = () => {
     setReduceModal(!reduceModal);
@@ -54,17 +66,6 @@ function App() {
     setShowModal(false);
     setReduceModal(false);
     setShowOverlay(false);
-  };
-
-  // Action : Ouvrir la modale + overlay. Si déjà ouvert mais réduit -> enleve le 'reduce'
-  const handleButtonClick = () => {
-    if (reduceModal === false) {
-      setShowModal(true);
-      setShowOverlay(true);
-    }
-    if (reduceModal === true) {
-      handleReduceModal();
-    }
   };
 
   return (

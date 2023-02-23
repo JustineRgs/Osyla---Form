@@ -1,12 +1,14 @@
+import style from "./_step.module.scss";
+
 import SelectImage from "../components/SelectImage/SelectImage";
 import Number from "../components/Number/Number";
 import Select from "../components/Select/Select";
-import { useState } from 'react';
-import { useRef } from 'react';
 import TextArea from "../components/TextArea/TextArea";
 
-function Step({ steps }) {
+import { useState } from 'react';
+import { useRef } from 'react';
 
+function Step({ steps }) {
   // Groupe visible par défault
   const [defaultGroups, setDefaultGroups] = useState([
     "field_group_type_de_toile",
@@ -60,63 +62,58 @@ function Step({ steps }) {
     }, 0);
   };
 
-  return steps.groups.map((group) => {
+  return steps.groups.map((group , i) => {
     // Affichage des groupes affichés par default OU qui ont étaient set en 'visible'
     if (defaultGroups.includes(group.name) || group.name === visibleGroup) {
       return (
-        <div className="group" id={group.name} ref={groupRef}>
+        <div className={style.group} id={group.name} ref={groupRef} key={i}>
           <h1>{group.label}</h1>
+
           {group.description && group.description != "..." && (
-            <div className="briefing">
+            <div className={style.briefing}>
               <p>{group.description}</p>
             </div>
           )}
 
-          <div className={(group.name === "field_group_dimension_toile_de_store_banne" || group.name === "field_group_dimension_toile_de_store_bras_droits" || group.name === "field_group_dimension_double_pente" || group.name === "field_group_dimension_descente_verticale"  ) ? "fields" : ""}>
+          <div className={(group.name === "field_group_dimension_toile_de_store_banne" || group.name === "field_group_dimension_toile_de_store_bras_droits" || group.name === "field_group_dimension_double_pente" || group.name === "field_group_dimension_descente_verticale") ? style.field_number : ""}>
             {group.fields.map((field, i) => {
+              return (
+                <div className={style.field} key={i}>
+                  {field.type === "select_images" && (
+                    <SelectImage
+                      label={field.label}
+                      options={field.options}
+                      id={field.name}
+                      handleRadioClick={handleRadioClick}
+                    />
+                  )}
 
-              if (field.type === "select_images") {
-                return (
-                  <SelectImage
-                    label={field.label}
-                    id={field.name}
-                    handleRadioClick={handleRadioClick}
-                    options={field.options}
-                  />
-                );
-              }
+                  {field.type === "number" && (
+                    <Number
+                      label={field.label}
+                      id={field.name} 
+                    />
+                  )}
 
-              if (field.type === "number") {
-                return (
-                  <Number
-                    id={field.name} 
-                    label={field.label}
-                  />
-                );
-              }
+                  {field.type === "select" && (
+                    <Select
+                      label={field.label}
+                      options={field.options}
+                      id={field.name}
+                    />
+                  )}
 
-              if (field.type === "select") {
-                return (
-                  <Select
-                    label={field.label}
-                    options={field.options}
-                    id={field.name}
-                  />
-                );
-              }
-
-              if (field.type === "textarea") {
-                return (
-                  <TextArea
-                    label={field.label}
-                    options={field.options}
-                    id={field.name}
-                  />
-                );
-              }
+                  {field.type === "textarea" && (
+                    <TextArea
+                      label={field.label}
+                      id={field.name}
+                    />
+                  )}
+                </div>
+              );
             })}
           </div>
-        </div>
+      </div>
       );
     }
   });

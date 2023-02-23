@@ -1,0 +1,22 @@
+@import "./../_utilities.scss";
+
+.group {
+    margin: 24px;
+}
+
+.briefing {
+    border: 1px dashed #A7AEC7;
+    border-radius: 5px;
+    padding: 12px;
+}
+
+.field {
+    margin-top: 15px;
+}
+
+.field_number {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+}

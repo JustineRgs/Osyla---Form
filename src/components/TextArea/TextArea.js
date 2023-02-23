@@ -1,6 +1,6 @@
-import "./textArea.scss";
+import style from "./_textArea.module.scss";
 
-export default function TextArea({ label, id, i }) {
+export default function TextArea({ label, id }) {
   return (
     <>
       <label htmlFor={id}>
@@ -10,7 +10,8 @@ export default function TextArea({ label, id, i }) {
           alt="icon d'information"
         ></ion-icon>
       </label>
-      <textarea className="text_area" />
+
+      <textarea />
     </>
   );
 }

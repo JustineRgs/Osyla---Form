@@ -1,4 +1,4 @@
-import "./select.scss";
+import style from "./_select.module.scss";
 
 export default function Select({ label, options, id }) {
   return (
@@ -10,9 +10,14 @@ export default function Select({ label, options, id }) {
           alt="icon d'information"
         ></ion-icon>
       </label>
-      <select className="select_list" id={id}>
+
+      <select name={id}>
         {options.map((option, i) => {
-          return <option value={option.value}>{option.label}</option>;
+          return (
+            <option value={option.value} key={i}>
+              {option.label}
+            </option>
+          );
         })}
       </select>
     </>

@@ -1,4 +1,5 @@
-import "./paginator.scss";
+import style from "./_paginator.module.scss";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,16 +23,17 @@ export default function Paginator({ stepsURL }) {
   };
 
   return (
-    <div className="paginator">
+    <div className={style.paginator}>
       {pageNumber > 1 && (
-        <div className="btn_previous" onClick={previousPage}>
+        <div className={style.btn_previous} onClick={previousPage}>
           <ion-icon name="chevron-back-outline"></ion-icon>
         </div>
       )}
+
       {pageNumber < stepsURL.length && (
-        <div className="btn_next" onClick={nextPage}>
+        <div className={style.btn_next} onClick={nextPage}>
           <span>Etape suivante</span>
-          <div className="arrow_next">
+          <div className={style.btn_next_arrow}>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </div>

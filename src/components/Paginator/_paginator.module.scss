@@ -1,15 +1,17 @@
+@import "../../_utilities.scss";
+
 .paginator {
     display: flex;
     justify-content: center;
-    width: 80%;
     align-items: center;
+    width: 80%;
     margin: 24px auto 12px auto;
 }
 
 .btn_previous {
-    position: relative;
-    background: hsl(0deg 0% 0%);
+    background: $black;
     border-radius: 100%;
+    position: relative;
     width: 40px;
     height: 38px;
     margin-right: 15px;
@@ -17,17 +19,17 @@
 }
 
 .btn_previous ion-icon {
+    color: $off-white;
+    font-size: 28px;
     position: absolute;
     transform: translate(1px, 3px);
-    font-size: 28px;
-    color: #FFFFFF;
 }
 
 .btn_next {
-    background: #000000;
+    background: $black;
     position: relative;
-    padding: 25px;
     width: 70%;
+    padding: 25px;
     margin: auto;
     cursor: pointer;
 }
@@ -39,17 +41,17 @@
 }
 
 .btn_next span {
-    color: #FFFFFF;
+    color: $off-white;
     font-size: 16px;
     font-weight: 700;
 }
 
-.arrow_next {
+.btn_next_arrow {
     position: absolute;
     background: #414141;
     border-radius: 0 6px 6px 0;
-    bottom: 0;
-    right: 0;
     height: 100%;
     width: 38px;
+    bottom: 0;
+    right: 0;
 }
