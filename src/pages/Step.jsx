@@ -9,8 +9,9 @@ import { useState } from "react";
 import { useRef } from "react";
 
 function Step({ steps }) {
-  // groupRef pour target le groupe qui vient de s'ouvrir et scroll jusqu'à lui
+  // GroupRef pour target le groupe qui vient de s'ouvrir et scroll jusqu'à lui
   const groupRef = useRef(null);
+
   // Récupération de l'id de l'option selectionnée pour setVisibleGroup 2 correspondant
   const [selectOption, setSelectOption] = useState(null);
 
@@ -60,25 +61,33 @@ function Step({ steps }) {
       setTimeout(() => {
         groupRef.current.scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          block: "start",
         });
       }, 0);
     }
   };
 
   return steps.groups.map((group, i) => {
-    // Affichage des groupes affichés par default OU qui ont étaient set en 'visible'
+    //* GROUP */ Affichage des groupes affichés par default OU qui ont étaient set en 'visible'
     if (defaultGroups.includes(group.name) || group.name === visibleGroup) {
       return (
         <div className={style.group} id={group.name} ref={groupRef} key={i}>
           <h1>{group.label}</h1>
-
-          {group.description && group.description != "..." && (
+          {group.description && (
             <div className={style.briefing}>
               <p>{group.description}</p>
+              {group.shortDescription && (
+                <p className={style.briefing_short}>
+                  {group.shortDescription}{" "}
+                  <a href={group.helpUrl} className={style.briefing_link}>
+                    cliquez-ici !
+                  </a>
+                </p>
+              )}
             </div>
           )}
 
+          {/* FIELD */}
           {group.fields.map((field, i) => {
             return (
               <div className={style.field} key={i}>

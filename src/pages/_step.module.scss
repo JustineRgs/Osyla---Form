@@ -1,22 +1,35 @@
 @import "./../_utilities.scss";
 
 .group {
-    margin: 24px;
+  margin: 27px 19px;
 }
 
 .briefing {
-    border: 1px dashed #A7AEC7;
-    border-radius: 5px;
-    padding: 12px;
+  font-family: "Sarabun" sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  border: 1px dashed #a7aec7;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.briefing_short {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.briefing_link {
+  color: $green;
+  font-weight: bold;
 }
 
 .field {
-    margin-top: 15px;
+  margin-top: 23px;
 }
 
 .field_number {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
 }

@@ -1,6 +1,6 @@
 import style from "./_selectImage.module.scss";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SelectImage({
   label,
@@ -18,6 +18,18 @@ export default function SelectImage({
     }
   };
 
+  // Tableau qui stocke les options sélectionnées par id de groupe
+  const [selectedOptionsById, setSelectedOptionsById] = useState({});
+
+  useEffect(() => {
+    // Mettre à jour le tableau selectedOptionsById avec la dernière option sélectionnée
+    setSelectedOptionsById((prevSelectedOptionsById) => ({
+      ...prevSelectedOptionsById,
+      [id]: selectedOption,
+    }));
+  }, [id, selectedOption]);
+
+  console.log(selectedOptionsById);
   return (
     <>
       <label htmlFor={id}>
@@ -27,7 +39,6 @@ export default function SelectImage({
           alt="icon d'information"
         ></ion-icon>
       </label>
-
       <ul name={id}>
         {options.map((option, i) => (
           <li className={style.container_select} key={i}>
@@ -35,7 +46,7 @@ export default function SelectImage({
               type="radio"
               id={option.name}
               value={option.value}
-              checked={option === selectedOption}
+              checked={option === selectedOptionsById[id]}
               onChange={() => handleSelectOption(option)}
             />
 

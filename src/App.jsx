@@ -88,8 +88,7 @@ function App() {
         <>
           <div className={`modal ${reduceModal ? "reduce" : ""}`}>
             <Header handleReduceModal={handleReduceModal} />
-
-            <div className="step">
+            <form className="step">
               <Routes>{routeElements}</Routes>
 
               <Paginator
@@ -98,11 +97,10 @@ function App() {
                 setPageNumber={setPageNumber}
                 pageNumber={pageNumber}
               />
-
               <span className="modal_close" onClick={handleCloseModal}>
                 Abandonner la configuration
               </span>
-            </div>
+            </form>
           </div>
         </>
       )}
