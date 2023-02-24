@@ -1,15 +1,19 @@
 // FONTS
-/* poppins : 300 */ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); 
-/* poppins : 500 */ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-/* poppins : 600 */ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-/* poppins : 600 italic */ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap');
-
+/* poppins : 300 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+/* poppins : 500 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+/* poppins : 600 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+/* poppins : 600 italic */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap");
 
 // COLORS
-$green : rgb(26 227 151);
-$red : rgb(255, 0, 38);
-$black : rgb(0 0 0);
-$white : rgb(252 252 252);
-$off-white : rgb(252 252 252 / 96%);
-$light-grey : rgb(167 174 199 / 57%);
-$light-black : rgba(0, 0, 0, 0.6);
+$green: rgb(26 227 151);
+$red: rgb(255, 0, 38);
+$black: rgb(0 0 0);
+$white: rgb(252 252 252);
+$off-white: rgb(252 252 252 / 96%);
+$light-green: rgb(105 122 112);
+$light-grey: rgb(167 174 199 / 57%);
+$light-black: rgba(0, 0, 0, 0.6);

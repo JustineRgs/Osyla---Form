@@ -2,13 +2,19 @@ import style from "./_selectImage.module.scss";
 
 import { useState } from "react";
 
-export default function SelectImage({ label, options, id, handleRadioClick }) {
+export default function SelectImage({
+  label,
+  options,
+  id,
+  handleChangeOption,
+}) {
+  // option == selectedOption au onChange d'une option
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const handleOptionClick = (option) => {
+  const handleSelectOption = (option) => {
     if (option !== selectedOption) {
       setSelectedOption(option);
-      handleRadioClick(option);
+      handleChangeOption(option);
     }
   };
 
@@ -27,11 +33,10 @@ export default function SelectImage({ label, options, id, handleRadioClick }) {
           <li className={style.container_select} key={i}>
             <input
               type="radio"
-              name={options.name}
               id={option.name}
               value={option.value}
               checked={option === selectedOption}
-              onClick={() => handleOptionClick(option)}
+              onChange={() => handleSelectOption(option)}
             />
 
             <div className={style.content_select}>

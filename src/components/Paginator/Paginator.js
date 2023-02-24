@@ -1,15 +1,11 @@
 import style from "./_paginator.module.scss";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-export default function Paginator({ stepsURL }) {
-  // Numéro de la page ouverte à l'instant T
-  const [pageNumber, setPageNumber] = useState(0);
-
-  // Stockage de l'url pour modification (ajout du numero de page)
-  const navigate = useNavigate();
-
+export default function Paginator({
+  stepsURL,
+  navigate,
+  pageNumber,
+  setPageNumber,
+}) {
   // Action : Page suivante
   const nextPage = () => {
     navigate(`/step${pageNumber + 1}`);
