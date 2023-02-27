@@ -6,8 +6,8 @@ export default function Number({
   id,
   label,
   constraints,
-  setFormValues,
   formValues,
+  setFormValues,
 }) {
   // Valeur de l'input à calculer
   const [calc, setCalc] = useState("100");

@@ -1,5 +1,6 @@
 import "./_app.scss";
 import { useState } from "react";
+import { useRef } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import data from "./data.json";
 import Header from "./components/Header/Header";
@@ -8,7 +9,7 @@ import Paginator from "./components/Paginator/Paginator";
 
 function App() {
   const [form, setForm] = useState(data);
-
+  const headRef = useRef(null);
   // Etat de la modale : Ouverte ou fermée
   const [showModal, setShowModal] = useState(false);
 
@@ -73,6 +74,7 @@ function App() {
     setShowModal(false);
     setReduceModal(false);
     setShowOverlay(false);
+    setPageNumber(0);
   };
 
   return (
@@ -86,7 +88,7 @@ function App() {
 
       {showModal && (
         <>
-          <div className={`modal ${reduceModal ? "reduce" : ""}`}>
+          <div className={`modal ${reduceModal ? "reduce" : ""}`} ref={headRef}>
             <Header handleReduceModal={handleReduceModal} />
             <form className="step">
               <Routes>{routeElements}</Routes>
@@ -96,6 +98,7 @@ function App() {
                 navigate={navigate}
                 setPageNumber={setPageNumber}
                 pageNumber={pageNumber}
+                headRef={headRef}
               />
               <span className="modal_close" onClick={handleCloseModal}>
                 Abandonner la configuration

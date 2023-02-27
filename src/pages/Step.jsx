@@ -29,7 +29,7 @@ function Step({ steps }) {
     "field_group_options",
   ]);
 
-  const handleChangeOption = (option, field, inputVal) => {
+  const handleChangeOption = (option, field) => {
     setSelectOption(selectOption);
 
     // Map pour associer noms des options selectionnées avec le groupe à ouvrir au onChange
@@ -133,6 +133,8 @@ function Step({ steps }) {
                     label={field.label}
                     options={field.options}
                     id={field.name}
+                    handleChangeOption={handleChangeOption}
+                    setFormValues={setFormValues}
                   />
                 )}
 

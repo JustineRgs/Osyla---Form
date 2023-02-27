@@ -5,11 +5,18 @@ export default function Paginator({
   navigate,
   pageNumber,
   setPageNumber,
+  headRef,
 }) {
   // Action : Page suivante
   const nextPage = () => {
     navigate(`/step${pageNumber + 1}`);
     setPageNumber(pageNumber + 1);
+    setTimeout(() => {
+      headRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
   };
 
   // Action : Page précédente
