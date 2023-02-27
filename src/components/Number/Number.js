@@ -2,14 +2,28 @@ import style from "./_number.module.scss";
 
 import { useState } from "react";
 
-export default function Number({ id, label, constraints }) {
+export default function Number({
+  id,
+  label,
+  constraints,
+  setFormValues,
+  formValues,
+}) {
   // Valeur de l'input à calculer
-  const [calc, setCalc] = useState(constraints.defaultValue);
+  const [calc, setCalc] = useState("100");
 
   // Récupération de la valeur rentré dans l'input
-  const inputCalc = (e) => {
+  const inputValue = (e) => {
     const inputVal = e.target.value;
     setCalc(inputVal);
+
+    // Mettre à jour l'état des valeurs sélectionnées pour chaque champ dans l'objet setFormValues
+    setFormValues((prevState) => {
+      return {
+        ...prevState,
+        [id]: inputVal,
+      };
+    });
   };
 
   return (
@@ -17,9 +31,12 @@ export default function Number({ id, label, constraints }) {
       <label htmlFor={id}>{label}</label>
       <div className={style.content_input}>
         <input
+          type="texte"
+          id={id}
           name={id}
-          onChange={inputCalc}
-          defaultValue={constraints.defaultValue}
+          placeholder="100"
+          defaultValue={formValues[id]}
+          onChange={inputValue}
           min={constraints.min}
           max={constraints.max}
           unit={constraints.unit}
@@ -28,7 +45,8 @@ export default function Number({ id, label, constraints }) {
           <>
             <span>cm</span>
             <p>
-              {calc} cm = {calc / 100} mètres
+              {formValues[id] ? formValues[id] : calc} cm ={" "}
+              {formValues[id] ? formValues[id] : calc / 100} mètres
             </p>
           </>
         )}

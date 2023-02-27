@@ -5,12 +5,15 @@ import Number from "../components/Number/Number";
 import Select from "../components/Select/Select";
 import TextArea from "../components/TextArea/TextArea";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRef } from "react";
 
 function Step({ steps }) {
   // GroupRef pour target le groupe qui vient de s'ouvrir et scroll jusqu'à lui
   const groupRef = useRef(null);
+
+  // Ajout d'un état pour stocker les options sélectionnées pour chaque champ dans un objet
+  const [formValues, setFormValues] = useState({});
 
   // Récupération de l'id de l'option selectionnée pour setVisibleGroup 2 correspondant
   const [selectOption, setSelectOption] = useState(null);
@@ -26,8 +29,8 @@ function Step({ steps }) {
     "field_group_options",
   ]);
 
-  const handleChangeOption = (option) => {
-    setSelectOption(option);
+  const handleChangeOption = (option, field, inputVal) => {
+    setSelectOption(selectOption);
 
     // Map pour associer noms des options selectionnées avec le groupe à ouvrir au onChange
     const groupMapping = {
@@ -52,7 +55,7 @@ function Step({ steps }) {
         "field_group_oeillet_sur_lambrequin",
     };
 
-    // Utilisation de groupMapping pour obtenir le nom du groupe correspondant à l'option sélectionnée. -
+    // Utilisation de groupMapping pour obtenir le nom du groupe correspondant à l'option sélectionnée.
     const visibleGroup = groupMapping[option.name];
 
     // Si l'option correspond à un groupe : (sinon, ne rien faire)
@@ -65,13 +68,25 @@ function Step({ steps }) {
         });
       }, 0);
     }
+
+    // Mettre à jour l'état des options sélectionnées pour chaque champ
+    setFormValues((prevState) => {
+      return {
+        ...prevState,
+        [field.name]: option.name,
+      };
+    });
   };
+
+  useEffect(() => {
+    console.log(formValues);
+  }, [formValues]);
 
   return steps.groups.map((group, i) => {
     //* GROUP */ Affichage des groupes affichés par default OU qui ont étaient set en 'visible'
     if (defaultGroups.includes(group.name) || group.name === visibleGroup) {
       return (
-        <div className={style.group} id={group.name} ref={groupRef} key={i}>
+        <div className={style.group} id={group.name} ref={groupRef}>
           <h1>{group.label}</h1>
           {group.description && (
             <div className={style.briefing}>
@@ -88,15 +103,18 @@ function Step({ steps }) {
           )}
 
           {/* FIELD */}
-          {group.fields.map((field, i) => {
+          {group.fields.map((field) => {
             return (
-              <div className={style.field} key={i}>
+              <div className={style.field}>
                 {field.type === "select_images" && (
                   <SelectImage
                     label={field.label}
                     options={field.options}
                     id={field.name}
-                    handleChangeOption={handleChangeOption}
+                    handleChangeOption={(option) =>
+                      handleChangeOption(option, field)
+                    }
+                    formValues={formValues}
                   />
                 )}
 
@@ -105,6 +123,8 @@ function Step({ steps }) {
                     label={field.label}
                     id={field.name}
                     constraints={field.constraints}
+                    setFormValues={setFormValues}
+                    formValues={formValues}
                   />
                 )}
 
