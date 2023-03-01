@@ -1,4 +1,4 @@
-@import "../../_utilities.scss";
+@use "../../utilities.scss";
 
 .container_select {
     position: relative;
@@ -16,11 +16,11 @@
 }
 
 .container_select input:checked+.content_select {
-    border: 2px solid $green;
+    border: 2px solid utilities.$green;
 }
 
 .content_select {
-    border: 1px solid $light-grey;
+    border: 1px solid utilities.$light-grey;
     border-radius: 15px;
     position: relative;
     width: 100%;

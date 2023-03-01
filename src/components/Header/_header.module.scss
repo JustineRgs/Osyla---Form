@@ -1,9 +1,9 @@
-@import "../../_utilities.scss";
+@use "../../utilities.scss";
 
 .header {
     font-size: 12px;
     font-weight: 600;
-    background-color: $off-white;
+    background-color: utilities.$off-white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     border-radius: 15px 15px 0 0;
     position: fixed;
@@ -25,7 +25,7 @@
 }
 
 .header_text {
-    color: $green;
+    color: utilities.$green;
     font-size: 17px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .btn_reduce {
-    background: $black;
+    background: utilities.$black;
     border-radius: 20px;
     opacity: 0.4;
     display: flex;

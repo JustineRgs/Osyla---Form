@@ -1,8 +1,8 @@
-@import "../../_utilities.scss";
+@use "../../utilities.scss";
 
 select {
   background: rgba(23, 171, 114, 0.21);
-  border: 1px solid $green;
+  border: 1px solid utilities.$green;
   border-radius: 15px;
   width: 98%;
   height: 60px;

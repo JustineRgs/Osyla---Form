@@ -1,4 +1,4 @@
-@import "../../_utilities.scss";
+@use "../../utilities.scss";
 
 .paginator {
   display: flex;
@@ -9,7 +9,7 @@
 }
 
 .btn_previous {
-  background: $black;
+  background: utilities.$black;
   border-radius: 100%;
   position: relative;
   width: 40px;
@@ -19,14 +19,14 @@
 }
 
 .btn_previous ion-icon {
-  color: $off-white;
+  color: utilities.$off-white;
   font-size: 28px;
   position: absolute;
   transform: translate(1px, 3px);
 }
 
 .btn_next {
-  background: $black;
+  background: utilities.$black;
   border-radius: 8px;
   position: relative;
   width: 70%;
@@ -42,7 +42,7 @@
 }
 
 .btn_next span {
-  color: $off-white;
+  color: utilities.$off-white;
   font-size: 16px;
   font-weight: 700;
 }

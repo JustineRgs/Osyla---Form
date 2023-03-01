@@ -1,4 +1,4 @@
-@import "./../_utilities.scss";
+@use "./../utilities.scss";
 
 .group {
   margin: 27px 19px;
@@ -19,7 +19,7 @@
 }
 
 .briefing_link {
-  color: $green;
+  color: utilities.$green;
   font-weight: bold;
 }
 
