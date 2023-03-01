@@ -2,13 +2,7 @@ import style from "./_number.module.scss";
 
 import { useState } from "react";
 
-export default function Number({
-  id,
-  label,
-  constraints,
-  formValues,
-  setFormValues,
-}) {
+export function Number({ id, label, constraints, formValues, setFormValues }) {
   // Valeur de l'input à calculer
   const [calc, setCalc] = useState("100");
 

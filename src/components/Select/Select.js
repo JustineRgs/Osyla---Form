@@ -1,6 +1,6 @@
 import style from "./_select.module.scss";
 
-export default function Select({ label, options, id, setFormValues }) {
+export function Select({ label, options, id, setFormValues }) {
   const handleSelectChange = (event) => {
     let selectVal = event.target.value;
     setFormValues((prevState) => {
