@@ -45,8 +45,8 @@ export default function Number({
           <>
             <span>cm</span>
             <p>
-              {formValues[id] ? formValues[id] : calc} cm ={" "}
-              {formValues[id] ? formValues[id] : calc / 100} mètres
+              {formValues[id] ? formValues[id] / 100 : calc} cm ={" "}
+              {formValues[id] ? formValues[id] / 100 : calc / 100} mètres
             </p>
           </>
         )}

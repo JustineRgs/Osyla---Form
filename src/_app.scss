@@ -52,7 +52,9 @@ ion-icon {
   z-index: 11;
   bottom: 0;
   width: 100%;
+  max-width: 450px;
   height: 70%;
+  max-height: 70%;
   transition: height 0.5s ease-in-out;
 }
 
