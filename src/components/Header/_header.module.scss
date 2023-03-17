@@ -9,6 +9,7 @@
     position: fixed;
     width: 100%;
     max-width: 450px;
+    max-height: 67px;
     z-index: 200;
     cursor:pointer;
 }
@@ -27,7 +28,13 @@
 
 .header_text {
     color: $green;
-    font-size: 17px;
+    font-size: 12px;
+}
+
+@media (max-height: 375px ) {
+    .header_text {
+        font-size: 17px;
+    }
 }
 
 .header_text__Secondary {
