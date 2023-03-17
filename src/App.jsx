@@ -9,7 +9,7 @@ import Paginator from "./components/Paginator/Paginator";
 
 function App() {
   const [form, setForm] = useState(data);
-  
+
   const headRef = useRef(null);
   // Etat de la modale : Ouverte ou fermée
   const [showModal, setShowModal] = useState(false);
@@ -77,7 +77,6 @@ function App() {
     setShowOverlay(false);
     setPageNumber(0);
   };
-
   return (
     <>
       <button type="" onClick={handleButtonClick}>
